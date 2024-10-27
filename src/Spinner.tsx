@@ -6,42 +6,44 @@ interface SpinnerProps {
   borderWidth?: number;
   speed?: number;
   animationType?: "spin" | "bounce";
-  gradient?: string;
   loading?: boolean;
+  gradient?: string;
   className?: string;
 }
 
 export const Spinner: React.FC<SpinnerProps> = ({
   size = 50,
-  color = "#3498db",
+  color = "#007aff",
   borderWidth = 4,
   speed = 1.5,
   animationType = "spin",
-  gradient,
   loading = true,
+  gradient,
   className,
 }) => {
   const styles: React.CSSProperties = {
     width: size,
     height: size,
-    border: `${borderWidth}px solid ${color}`,
+    border: `${borderWidth}px solid ${
+      gradient ? `linear-gradient(${gradient})` : color
+    }`,
     borderTop: `${borderWidth}px solid transparent`,
     borderRadius: "50%",
-    animation: loading ? `${animationType} ${speed}s linear infinite` : "none",
-    background: gradient ? `linear-gradient(${gradient})` : "transparent",
+    animation: `${
+      animationType === "spin" ? "spin" : "bounce"
+    } ${speed}s linear infinite`,
+    display: loading ? "block" : "none",
   };
 
   useEffect(() => {
     if (typeof document !== "undefined") {
       const styleSheet = document.styleSheets[0];
-      const spinExists = Array.from(styleSheet.cssRules).some(
+
+      const spinRuleExists = Array.from(styleSheet.cssRules).some(
         (rule) => rule instanceof CSSKeyframesRule && rule.name === "spin"
       );
-      const bounceExists = Array.from(styleSheet.cssRules).some(
-        (rule) => rule instanceof CSSKeyframesRule && rule.name === "bounce"
-      );
 
-      if (!spinExists) {
+      if (!spinRuleExists) {
         styleSheet.insertRule(
           `
           @keyframes spin {
@@ -53,12 +55,16 @@ export const Spinner: React.FC<SpinnerProps> = ({
         );
       }
 
-      if (!bounceExists) {
+      const bounceRuleExists = Array.from(styleSheet.cssRules).some(
+        (rule) => rule instanceof CSSKeyframesRule && rule.name === "bounce"
+      );
+
+      if (!bounceRuleExists) {
         styleSheet.insertRule(
           `
           @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
           }
         `,
           styleSheet.cssRules.length
