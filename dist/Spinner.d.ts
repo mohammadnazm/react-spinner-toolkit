@@ -4,10 +4,11 @@ interface SpinnerProps {
     color?: string;
     borderWidth?: number;
     speed?: number;
-    animationType?: "spin" | "bounce";
-    gradient?: string;
+    animationType?: "spin" | "bounce" | "pulse" | "fade" | "rotateSquare" | "bounceBalls" | "ring";
     loading?: boolean;
+    gradient?: string;
     className?: string;
+    shape?: string;
 }
 export declare const Spinner: React.FC<SpinnerProps>;
 export {};
