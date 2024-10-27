@@ -1,11 +1,13 @@
 import React from "react";
 interface SpinnerProps {
-    size?: number;
+    size?: number | string;
     color?: string;
-    speed?: number;
     borderWidth?: number;
+    speed?: number;
+    animationType?: "spin" | "bounce" | "pulse";
+    gradient?: string;
+    className?: string;
     loading?: boolean;
-    label?: string;
 }
 export declare const Spinner: React.FC<SpinnerProps>;
 export {};
