@@ -1,22 +1,26 @@
 import React, { useEffect } from "react";
 
 interface SpinnerProps {
-  size?: number;
-  color?: string;
+  size?: number; // Size of the spinner
+  color?: string; // Color of the spinner
+  speed?: number; // Animation speed in seconds
+  borderWidth?: number; // Width of the spinner's border
 }
 
 export const Spinner: React.FC<SpinnerProps> = ({
-  size = 50,
-  color = "#3498db",
+  size = 50, // Default size
+  color = "#3498db", // Default color
+  speed = 1.5, // Default speed in seconds
+  borderWidth = 5, // Default border width
 }) => {
-  const styles = {
+  const styles: React.CSSProperties = {
     width: size,
     height: size,
-    border: `${size / 10}px solid ${color}`,
-    borderTop: `${size / 10}px solid transparent`,
+    border: `${borderWidth}px solid ${color}`, // Border width and color
+    borderTop: `${borderWidth}px solid transparent`,
     borderRadius: "50%",
-    animation: "spin 1.5s linear infinite",
-  } as React.CSSProperties;
+    animation: `spin ${speed}s linear infinite`, // Animation speed
+  };
 
   useEffect(() => {
     if (typeof document !== "undefined") {

@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
 export var Spinner = function (_a) {
-    var _b = _a.size, size = _b === void 0 ? 50 : _b, _c = _a.color, color = _c === void 0 ? "#3498db" : _c;
+    var _b = _a.size, size = _b === void 0 ? 50 : _b, // Default size
+    _c = _a.color, // Default size
+    color = _c === void 0 ? "#3498db" : _c, // Default color
+    _d = _a.speed, // Default color
+    speed = _d === void 0 ? 1.5 : _d, // Default speed in seconds
+    _e = _a.borderWidth, // Default speed in seconds
+    borderWidth = _e === void 0 ? 5 : _e;
     var styles = {
         width: size,
         height: size,
-        border: "".concat(size / 10, "px solid ").concat(color),
-        borderTop: "".concat(size / 10, "px solid transparent"),
+        border: "".concat(borderWidth, "px solid ").concat(color), // Border width and color
+        borderTop: "".concat(borderWidth, "px solid transparent"),
         borderRadius: "50%",
-        animation: "spin 1.5s linear infinite",
+        animation: "spin ".concat(speed, "s linear infinite"), // Animation speed
     };
     useEffect(function () {
         if (typeof document !== "undefined") {
