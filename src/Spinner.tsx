@@ -5,6 +5,8 @@ interface SpinnerProps {
   color?: string; // Color of the spinner
   speed?: number; // Animation speed in seconds
   borderWidth?: number; // Width of the spinner's border
+  loading?: boolean; // Indicates if the spinner should be visible
+  label?: string; // Accessibility label for screen readers
 }
 
 export const Spinner: React.FC<SpinnerProps> = ({
@@ -12,7 +14,10 @@ export const Spinner: React.FC<SpinnerProps> = ({
   color = "#3498db", // Default color
   speed = 1.5, // Default speed in seconds
   borderWidth = 5, // Default border width
+  loading = true, // Default loading state
+  label = "Loading...", // Default label for accessibility
 }) => {
+  // Style for the spinner
   const styles: React.CSSProperties = {
     width: size,
     height: size,
@@ -20,6 +25,7 @@ export const Spinner: React.FC<SpinnerProps> = ({
     borderTop: `${borderWidth}px solid transparent`,
     borderRadius: "50%",
     animation: `spin ${speed}s linear infinite`, // Animation speed
+    display: loading ? "block" : "none", // Show or hide based on loading state
   };
 
   useEffect(() => {
@@ -46,5 +52,11 @@ export const Spinner: React.FC<SpinnerProps> = ({
     }
   }, []);
 
-  return <div style={styles} />;
+  return (
+    <div
+      style={styles}
+      aria-label={label} // Accessibility label
+      role="status" // Role for assistive technologies
+    />
+  );
 };

@@ -6,7 +6,12 @@ export var Spinner = function (_a) {
     _d = _a.speed, // Default color
     speed = _d === void 0 ? 1.5 : _d, // Default speed in seconds
     _e = _a.borderWidth, // Default speed in seconds
-    borderWidth = _e === void 0 ? 5 : _e;
+    borderWidth = _e === void 0 ? 5 : _e, // Default border width
+    _f = _a.loading, // Default border width
+    loading = _f === void 0 ? true : _f, // Default loading state
+    _g = _a.label, // Default loading state
+    label = _g === void 0 ? "Loading..." : _g;
+    // Style for the spinner
     var styles = {
         width: size,
         height: size,
@@ -14,6 +19,7 @@ export var Spinner = function (_a) {
         borderTop: "".concat(borderWidth, "px solid transparent"),
         borderRadius: "50%",
         animation: "spin ".concat(speed, "s linear infinite"), // Animation speed
+        display: loading ? "block" : "none", // Show or hide based on loading state
     };
     useEffect(function () {
         if (typeof document !== "undefined") {
@@ -26,6 +32,7 @@ export var Spinner = function (_a) {
             }
         }
     }, []);
-    return React.createElement("div", { style: styles });
+    return (React.createElement("div", { style: styles, "aria-label": label, role: "status" // Role for assistive technologies
+     }));
 };
 //# sourceMappingURL=Spinner.js.map

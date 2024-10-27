@@ -4,6 +4,8 @@ interface SpinnerProps {
     color?: string;
     speed?: number;
     borderWidth?: number;
+    loading?: boolean;
+    label?: string;
 }
 export declare const Spinner: React.FC<SpinnerProps>;
 export {};
