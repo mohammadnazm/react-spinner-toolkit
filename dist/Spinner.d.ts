@@ -5,8 +5,8 @@ interface SpinnerProps {
     borderWidth?: number;
     speed?: number;
     animationType?: "spin" | "bounce";
-    loading?: boolean;
     gradient?: string;
+    loading?: boolean;
     className?: string;
 }
 export declare const Spinner: React.FC<SpinnerProps>;
