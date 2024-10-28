@@ -12,7 +12,9 @@ interface SpinnerProps {
     | "fade"
     | "rotateSquare"
     | "bounceBalls"
-    | "ring";
+    | "ring"
+    | "scaleLoader"
+    | "dotLoader"; // Added DotLoader
   loading?: boolean;
   gradient?: string;
   className?: string;
@@ -89,6 +91,19 @@ export const Spinner: React.FC<SpinnerProps> = ({
             100% { transform: scale(0.95); }
           }
         `,
+        scaleLoader: `
+          @keyframes scaleLoader {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+          }
+        `,
+        dotLoader: `
+          @keyframes dotLoader {
+            0%, 20% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+            100% { transform: scale(1); }
+          }
+        `,
       };
 
       Object.entries(keyframeAnimations).forEach(([name, animation]) => {
@@ -146,15 +161,32 @@ export const Spinner: React.FC<SpinnerProps> = ({
         </div>
       );
     case "rotatingSquare":
+      const squareSize = size / 2; // Size of the square
       return (
         <div
           style={{
-            ...styles,
-            borderRadius: "0%",
+            width: squareSize,
+            height: squareSize,
+            backgroundColor: color,
+            borderRadius: "5%", // Slightly rounded corners for a nicer look
             animation: `rotateSquare ${speed}s linear infinite`,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            transformOrigin: "50% 50%", // Center the rotation
           }}
           className={className}
-        />
+        >
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              backgroundColor: color,
+              opacity: 0.6, // Slight transparency for a layered effect
+              borderRadius: "5%",
+            }}
+          />
+        </div>
       );
     case "bouncingBalls":
       return (
@@ -204,6 +236,65 @@ export const Spinner: React.FC<SpinnerProps> = ({
               position: "absolute",
             }}
           />
+        </div>
+      );
+    case "scaleLoader":
+      const barWidth = size / 8; // Width of each bar
+      const barHeight = size / 2; // Height of each bar
+      return (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "flex-end",
+            height: size,
+            width: size,
+            position: "relative",
+          }}
+          className={className}
+        >
+          {Array.from({ length: 3 }).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: barWidth,
+                height: barHeight,
+                backgroundColor: color,
+                borderRadius: "5px", // Rounded corners for a nicer look
+                animation: `scaleLoader ${speed}s infinite`,
+                animationDelay: `${index * (speed / 3)}s`,
+              }}
+            />
+          ))}
+        </div>
+      );
+    case "dotLoader":
+      // Refined DotLoader design with better sizes and spacing
+      const dotSize = size / 6; // Size of each dot
+      return (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            width: size,
+            height: size,
+          }}
+          className={className}
+        >
+          {Array.from({ length: 3 }).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: dotSize,
+                height: dotSize,
+                borderRadius: "50%",
+                backgroundColor: color,
+                animation: `dotLoader ${speed}s infinite`,
+                animationDelay: `${index * (speed / 3)}s`,
+              }}
+            />
+          ))}
         </div>
       );
     default:

@@ -4,7 +4,7 @@ interface SpinnerProps {
     color?: string;
     borderWidth?: number;
     speed?: number;
-    animationType?: "spin" | "bounce" | "pulse" | "fade" | "rotateSquare" | "bounceBalls" | "ring";
+    animationType?: "spin" | "bounce" | "pulse" | "fade" | "rotateSquare" | "bounceBalls" | "ring" | "scaleLoader" | "dotLoader";
     loading?: boolean;
     gradient?: string;
     className?: string;

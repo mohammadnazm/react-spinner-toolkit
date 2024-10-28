@@ -32,6 +32,8 @@ export var Spinner = function (_a) {
                 rotateSquare: "\n          @keyframes rotateSquare {\n            0% { transform: rotate(0deg); }\n            100% { transform: rotate(360deg); }\n          }\n        ",
                 bounceBalls: "\n          @keyframes bounceBalls {\n            0%, 100% { transform: translateY(0); }\n            50% { transform: translateY(-10px); }\n          }\n        ",
                 ring: "\n          @keyframes ring {\n            0% { transform: scale(0.95); }\n            50% { transform: scale(1.05); }\n            100% { transform: scale(0.95); }\n          }\n        ",
+                scaleLoader: "\n          @keyframes scaleLoader {\n            0%, 100% { transform: scale(1); }\n            50% { transform: scale(1.5); }\n          }\n        ",
+                dotLoader: "\n          @keyframes dotLoader {\n            0%, 20% { transform: scale(1); }\n            50% { transform: scale(1.5); }\n            100% { transform: scale(1); }\n          }\n        ",
             };
             Object.entries(keyframeAnimations).forEach(function (_a) {
                 var name = _a[0], animation = _a[1];
@@ -62,7 +64,25 @@ export var Spinner = function (_a) {
                     animation: "fade ".concat(speed, "s infinite ").concat(index * (speed / 3), "s"),
                 } })); })));
         case "rotatingSquare":
-            return (React.createElement("div", { style: __assign(__assign({}, styles), { borderRadius: "0%", animation: "rotateSquare ".concat(speed, "s linear infinite") }), className: className }));
+            var squareSize = size / 2; // Size of the square
+            return (React.createElement("div", { style: {
+                    width: squareSize,
+                    height: squareSize,
+                    backgroundColor: color,
+                    borderRadius: "5%", // Slightly rounded corners for a nicer look
+                    animation: "rotateSquare ".concat(speed, "s linear infinite"),
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transformOrigin: "50% 50%", // Center the rotation
+                }, className: className },
+                React.createElement("div", { style: {
+                        width: "100%",
+                        height: "100%",
+                        backgroundColor: color,
+                        opacity: 0.6, // Slight transparency for a layered effect
+                        borderRadius: "5%",
+                    } })));
         case "bouncingBalls":
             return (React.createElement("div", { className: className, style: {
                     display: "flex",
@@ -85,6 +105,41 @@ export var Spinner = function (_a) {
                         animation: "ring ".concat(speed, "s infinite"),
                         position: "absolute",
                     } })));
+        case "scaleLoader":
+            var barWidth_1 = size / 8; // Width of each bar
+            var barHeight_1 = size / 2; // Height of each bar
+            return (React.createElement("div", { style: {
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "flex-end",
+                    height: size,
+                    width: size,
+                    position: "relative",
+                }, className: className }, Array.from({ length: 3 }).map(function (_, index) { return (React.createElement("div", { key: index, style: {
+                    width: barWidth_1,
+                    height: barHeight_1,
+                    backgroundColor: color,
+                    borderRadius: "5px", // Rounded corners for a nicer look
+                    animation: "scaleLoader ".concat(speed, "s infinite"),
+                    animationDelay: "".concat(index * (speed / 3), "s"),
+                } })); })));
+        case "dotLoader":
+            // Refined DotLoader design with better sizes and spacing
+            var dotSize_1 = size / 6; // Size of each dot
+            return (React.createElement("div", { style: {
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                    width: size,
+                    height: size,
+                }, className: className }, Array.from({ length: 3 }).map(function (_, index) { return (React.createElement("div", { key: index, style: {
+                    width: dotSize_1,
+                    height: dotSize_1,
+                    borderRadius: "50%",
+                    backgroundColor: color,
+                    animation: "dotLoader ".concat(speed, "s infinite"),
+                    animationDelay: "".concat(index * (speed / 3), "s"),
+                } })); })));
         default:
             return React.createElement("div", { style: styles, className: className });
     }
