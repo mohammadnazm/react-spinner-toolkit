@@ -7,6 +7,6 @@ export default {
     { file: "dist/index.js", format: "cjs" },
     { file: "dist/index.es.js", format: "es" },
   ],
-  external: ["react", "react-dom"], // Mark react and react-dom as external
+  external: ["react", "react-dom"],
   plugins: [postcss({ extract: true }), typescript()],
 };
