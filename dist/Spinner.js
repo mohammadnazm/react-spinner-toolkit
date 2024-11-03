@@ -34,6 +34,17 @@ export var Spinner = function (_a) {
                 ring: "\n          @keyframes ring {\n            0% { transform: scale(0.95); }\n            50% { transform: scale(1.05); }\n            100% { transform: scale(0.95); }\n          }\n        ",
                 scaleLoader: "\n          @keyframes scaleLoader {\n            0%, 100% { transform: scale(1); }\n            50% { transform: scale(1.5); }\n          }\n        ",
                 dotLoader: "\n          @keyframes dotLoader {\n            0%, 20% { transform: scale(1); }\n            50% { transform: scale(1.5); }\n            100% { transform: scale(1); }\n          }\n        ",
+                scaleCircle: "\n        @keyframes scaleCircle {\n          0% { transform: scale(0.95); }\n          50% { transform: scale(1.05); }\n          100% { transform: scale(0.95); }\n        }\n      ",
+                cubeGrid: "\n        @keyframes cubeGrid {\n          0%, 100% { transform: scale(1); }\n          25% { transform: scale(0.5); }\n          50% { transform: scale(1); }\n          75% { transform: scale(0.5); }\n        }\n      ",
+                threeDots: "\n        @keyframes threeDots {\n          0%, 100% { transform: translateY(0); }\n          50% { transform: translateY(-15px); }\n        }\n      ",
+                chasingDots: "\n        @keyframes chasingDots {\n          0%, 100% { transform: scale(1); }\n          50% { transform: scale(0.5); }\n        }\n      ",
+                puff: "\n        @keyframes puff {\n          0% { transform: scale(1); }\n          50% { transform: scale(1.5); opacity: 0.5; }\n          100% { transform: scale(1); opacity: 0; }\n        }\n      ",
+                wave: "\n        @keyframes wave {\n          0%, 100% { transform: translateY(0); }\n          50% { transform: translateY(-20px); }\n        }\n      ",
+                pulsingDots: "\n      @keyframes pulsingDots {\n        0%, 100% { transform: scale(1); }\n        50% { transform: scale(1.5); }\n      }\n    ",
+                doubleBounce: "\n      @keyframes doubleBounce {\n        0%, 100% { transform: scale(1); }\n        50% { transform: scale(0.5); }\n      }\n    ",
+                threeBounce: "\n      @keyframes threeBounce {\n        0%, 100% { transform: translateY(0); }\n        50% { transform: translateY(-15px); }\n      }\n    ",
+                cube: "\n      @keyframes cube {\n        0%, 100% { transform: rotate(0deg); }\n        50% { transform: rotate(180deg); }\n      }\n    ",
+                spiral: "\n      @keyframes spiral {\n        0% { transform: rotate(0deg) translateX(0); }\n        100% { transform: rotate(360deg) translateX(20px); }\n      }\n    ",
             };
             Object.entries(keyframeAnimations).forEach(function (_a) {
                 var name = _a[0], animation = _a[1];
@@ -139,6 +150,147 @@ export var Spinner = function (_a) {
                     backgroundColor: color,
                     animation: "dotLoader ".concat(speed, "s infinite"),
                     animationDelay: "".concat(index * (speed / 3), "s"),
+                } })); })));
+        case "scaleCircle":
+            return (React.createElement("div", { style: __assign(__assign({}, styles), { animation: "scaleCircle ".concat(speed, "s infinite") }), className: className }));
+        case "cubeGrid":
+            return (React.createElement("div", { className: className, style: {
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2, 1fr)",
+                    gap: "4px",
+                    width: size,
+                    height: size,
+                } }, Array.from({ length: 4 }).map(function (_, index) { return (React.createElement("div", { key: index, style: {
+                    width: size / 3,
+                    height: size / 3,
+                    backgroundColor: color,
+                    animation: "cubeGrid ".concat(speed, "s infinite"),
+                } })); })));
+        case "threeDots":
+            return (React.createElement("div", { className: className, style: {
+                    display: "flex",
+                    justifyContent: "space-around",
+                    width: size,
+                } }, Array.from({ length: 3 }).map(function (_, index) { return (React.createElement("div", { key: index, style: {
+                    width: size / 6,
+                    height: size / 6,
+                    borderRadius: "50%",
+                    backgroundColor: color,
+                    animation: "threeDots ".concat(speed, "s infinite ").concat(index * (speed / 3), "s"),
+                } })); })));
+        case "chasingDots":
+            return (React.createElement("div", { className: className, style: {
+                    display: "flex",
+                    justifyContent: "space-around",
+                    width: size,
+                } }, Array.from({ length: 2 }).map(function (_, index) { return (React.createElement("div", { key: index, style: {
+                    width: size / 6,
+                    height: size / 6,
+                    borderRadius: "50%",
+                    backgroundColor: color,
+                    animation: "chasingDots ".concat(speed, "s infinite ").concat(index * (speed / 2), "s"),
+                } })); })));
+        case "puff":
+            return (React.createElement("div", { style: __assign(__assign({}, styles), { animation: "puff ".concat(speed, "s infinite") }), className: className }));
+        case "wave":
+            return (React.createElement("div", { className: className, style: {
+                    display: "flex",
+                    justifyContent: "space-around",
+                    width: size,
+                } }, Array.from({ length: 5 }).map(function (_, index) { return (React.createElement("div", { key: index, style: {
+                    width: size / 10,
+                    height: size,
+                    backgroundColor: color,
+                    animation: "wave ".concat(speed, "s infinite"),
+                    animationDelay: "".concat(index * (speed / 5), "s"),
+                } })); })));
+        case "pulsingDots":
+            return (React.createElement("div", { className: className, style: {
+                    display: "flex",
+                    justifyContent: "space-around",
+                    width: size,
+                } }, Array.from({ length: 3 }).map(function (_, index) { return (React.createElement("div", { key: index, style: {
+                    width: size / 6,
+                    height: size / 6,
+                    borderRadius: "50%",
+                    backgroundColor: color,
+                    animation: "pulsingDots ".concat(speed, "s infinite ").concat(index * (speed / 3), "s"),
+                } })); })));
+        case "chasingDots":
+            return (React.createElement("div", { className: className, style: {
+                    display: "flex",
+                    justifyContent: "space-around",
+                    width: size,
+                } }, Array.from({ length: 2 }).map(function (_, index) { return (React.createElement("div", { key: index, style: {
+                    width: size / 6,
+                    height: size / 6,
+                    borderRadius: "50%",
+                    backgroundColor: color,
+                    animation: "chasingDots ".concat(speed, "s infinite ").concat(index * (speed / 2), "s"),
+                } })); })));
+        case "doubleBounce":
+            return (React.createElement("div", { className: className, style: {
+                    display: "flex",
+                    justifyContent: "space-around",
+                    width: size,
+                } }, Array.from({ length: 2 }).map(function (_, index) { return (React.createElement("div", { key: index, style: {
+                    width: size / 6,
+                    height: size / 6,
+                    borderRadius: "50%",
+                    backgroundColor: color,
+                    animation: "doubleBounce ".concat(speed, "s infinite"),
+                    animationDelay: "".concat(index * 0.5 * speed, "s"),
+                } })); })));
+        case "threeBounce":
+            return (React.createElement("div", { className: className, style: {
+                    display: "flex",
+                    justifyContent: "space-around",
+                    width: size,
+                } }, Array.from({ length: 3 }).map(function (_, index) { return (React.createElement("div", { key: index, style: {
+                    width: size / 6,
+                    height: size / 6,
+                    borderRadius: "50%",
+                    backgroundColor: color,
+                    animation: "threeBounce ".concat(speed, "s infinite"),
+                    animationDelay: "".concat(index * 0.5 * speed, "s"),
+                } })); })));
+        case "cube":
+            return (React.createElement("div", { className: className, style: {
+                    display: "flex",
+                    justifyContent: "space-around",
+                    width: size,
+                } },
+                React.createElement("div", { style: {
+                        width: size / 6,
+                        height: size / 6,
+                        backgroundColor: color,
+                        animation: "cube ".concat(speed, "s infinite"),
+                    } })));
+        case "spiral":
+            return (React.createElement("div", { className: className, style: {
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: size,
+                } },
+                React.createElement("div", { style: {
+                        width: size / 6,
+                        height: size / 6,
+                        borderRadius: "50%",
+                        backgroundColor: color,
+                        animation: "spiral ".concat(speed, "s infinite"),
+                    } })));
+        case "wave":
+            return (React.createElement("div", { className: className, style: {
+                    display: "flex",
+                    justifyContent: "space-around",
+                    width: size,
+                } }, Array.from({ length: 4 }).map(function (_, index) { return (React.createElement("div", { key: index, style: {
+                    width: size / 12,
+                    height: size / 4,
+                    backgroundColor: color,
+                    animation: "wave ".concat(speed, "s infinite"),
+                    animationDelay: "".concat(index * (speed / 4), "s"),
                 } })); })));
         default:
             return React.createElement("div", { style: styles, className: className });

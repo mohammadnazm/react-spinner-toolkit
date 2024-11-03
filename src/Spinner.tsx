@@ -104,6 +104,76 @@ export const Spinner: React.FC<SpinnerProps> = ({
             100% { transform: scale(1); }
           }
         `,
+        scaleCircle: `
+        @keyframes scaleCircle {
+          0% { transform: scale(0.95); }
+          50% { transform: scale(1.05); }
+          100% { transform: scale(0.95); }
+        }
+      `,
+        cubeGrid: `
+        @keyframes cubeGrid {
+          0%, 100% { transform: scale(1); }
+          25% { transform: scale(0.5); }
+          50% { transform: scale(1); }
+          75% { transform: scale(0.5); }
+        }
+      `,
+        threeDots: `
+        @keyframes threeDots {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-15px); }
+        }
+      `,
+        chasingDots: `
+        @keyframes chasingDots {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(0.5); }
+        }
+      `,
+        puff: `
+        @keyframes puff {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.5); opacity: 0.5; }
+          100% { transform: scale(1); opacity: 0; }
+        }
+      `,
+        wave: `
+        @keyframes wave {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-20px); }
+        }
+      `,
+        pulsingDots: `
+      @keyframes pulsingDots {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.5); }
+      }
+    `,
+        doubleBounce: `
+      @keyframes doubleBounce {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(0.5); }
+      }
+    `,
+        threeBounce: `
+      @keyframes threeBounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+      }
+    `,
+        cube: `
+      @keyframes cube {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(180deg); }
+      }
+    `,
+        spiral: `
+      @keyframes spiral {
+        0% { transform: rotate(0deg) translateX(0); }
+        100% { transform: rotate(360deg) translateX(20px); }
+      }
+    `,
       };
 
       Object.entries(keyframeAnimations).forEach(([name, animation]) => {
@@ -292,6 +362,289 @@ export const Spinner: React.FC<SpinnerProps> = ({
                 backgroundColor: color,
                 animation: `dotLoader ${speed}s infinite`,
                 animationDelay: `${index * (speed / 3)}s`,
+              }}
+            />
+          ))}
+        </div>
+      );
+    case "scaleCircle":
+      return (
+        <div
+          style={{ ...styles, animation: `scaleCircle ${speed}s infinite` }}
+          className={className}
+        />
+      );
+    case "cubeGrid":
+      return (
+        <div
+          className={className}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: "4px",
+            width: size,
+            height: size,
+          }}
+        >
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: size / 3,
+                height: size / 3,
+                backgroundColor: color,
+                animation: `cubeGrid ${speed}s infinite`,
+              }}
+            />
+          ))}
+        </div>
+      );
+    case "threeDots":
+      return (
+        <div
+          className={className}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: size,
+          }}
+        >
+          {Array.from({ length: 3 }).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: size / 6,
+                height: size / 6,
+                borderRadius: "50%",
+                backgroundColor: color,
+                animation: `threeDots ${speed}s infinite ${
+                  index * (speed / 3)
+                }s`,
+              }}
+            />
+          ))}
+        </div>
+      );
+    case "chasingDots":
+      return (
+        <div
+          className={className}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: size,
+          }}
+        >
+          {Array.from({ length: 2 }).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: size / 6,
+                height: size / 6,
+                borderRadius: "50%",
+                backgroundColor: color,
+                animation: `chasingDots ${speed}s infinite ${
+                  index * (speed / 2)
+                }s`,
+              }}
+            />
+          ))}
+        </div>
+      );
+    case "puff":
+      return (
+        <div
+          style={{ ...styles, animation: `puff ${speed}s infinite` }}
+          className={className}
+        />
+      );
+    case "wave":
+      return (
+        <div
+          className={className}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: size,
+          }}
+        >
+          {Array.from({ length: 5 }).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: size / 10,
+                height: size,
+                backgroundColor: color,
+                animation: `wave ${speed}s infinite`,
+                animationDelay: `${index * (speed / 5)}s`,
+              }}
+            />
+          ))}
+        </div>
+      );
+    case "pulsingDots":
+      return (
+        <div
+          className={className}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: size,
+          }}
+        >
+          {Array.from({ length: 3 }).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: size / 6,
+                height: size / 6,
+                borderRadius: "50%",
+                backgroundColor: color,
+                animation: `pulsingDots ${speed}s infinite ${
+                  index * (speed / 3)
+                }s`,
+              }}
+            />
+          ))}
+        </div>
+      );
+    case "chasingDots":
+      return (
+        <div
+          className={className}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: size,
+          }}
+        >
+          {Array.from({ length: 2 }).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: size / 6,
+                height: size / 6,
+                borderRadius: "50%",
+                backgroundColor: color,
+                animation: `chasingDots ${speed}s infinite ${
+                  index * (speed / 2)
+                }s`,
+              }}
+            />
+          ))}
+        </div>
+      );
+    case "doubleBounce":
+      return (
+        <div
+          className={className}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: size,
+          }}
+        >
+          {Array.from({ length: 2 }).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: size / 6,
+                height: size / 6,
+                borderRadius: "50%",
+                backgroundColor: color,
+                animation: `doubleBounce ${speed}s infinite`,
+                animationDelay: `${index * 0.5 * speed}s`,
+              }}
+            />
+          ))}
+        </div>
+      );
+    case "threeBounce":
+      return (
+        <div
+          className={className}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: size,
+          }}
+        >
+          {Array.from({ length: 3 }).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: size / 6,
+                height: size / 6,
+                borderRadius: "50%",
+                backgroundColor: color,
+                animation: `threeBounce ${speed}s infinite`,
+                animationDelay: `${index * 0.5 * speed}s`,
+              }}
+            />
+          ))}
+        </div>
+      );
+    case "cube":
+      return (
+        <div
+          className={className}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: size,
+          }}
+        >
+          <div
+            style={{
+              width: size / 6,
+              height: size / 6,
+              backgroundColor: color,
+              animation: `cube ${speed}s infinite`,
+            }}
+          />
+        </div>
+      );
+    case "spiral":
+      return (
+        <div
+          className={className}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: size,
+          }}
+        >
+          <div
+            style={{
+              width: size / 6,
+              height: size / 6,
+              borderRadius: "50%",
+              backgroundColor: color,
+              animation: `spiral ${speed}s infinite`,
+            }}
+          />
+        </div>
+      );
+    case "wave":
+      return (
+        <div
+          className={className}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: size,
+          }}
+        >
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: size / 12,
+                height: size / 4,
+                backgroundColor: color,
+                animation: `wave ${speed}s infinite`,
+                animationDelay: `${index * (speed / 4)}s`,
               }}
             />
           ))}
