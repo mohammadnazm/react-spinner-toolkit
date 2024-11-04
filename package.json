@@ -1,8 +1,8 @@
 {
-  "name": "spineer-package",
+  "name": "react-spinner-toolkit",
   "version": "1.0.0",
   "type": "module",
-  "description": "A unique spinner and skeleton loader for React and Next.js applications",
+  "description": "A unique spinner for React and Next.js applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -13,17 +13,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://your-repo-url.git"
+    "url": "https://github.com/mohammadnazm/spinner-package.git"
   },
   "keywords": [
     "react",
     "nextjs",
     "spinner",
-    "skeleton",
     "loader",
     "typescript"
   ],
-  "author": "Your Name",
+  "author": "Mohammed Nazm",
   "license": "MIT",
   "dependencies": {
     "@types/react": "^18.3.10",
