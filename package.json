@@ -43,7 +43,8 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "README.md"
   ],
   "readme": "README.md"
 }
