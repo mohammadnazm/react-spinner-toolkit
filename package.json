@@ -44,6 +44,5 @@
   "files": [
     "dist",
     "src"
-  ],
-  "readme": "README.md"
+  ]
 }
