@@ -116,10 +116,10 @@ Contributions are welcome! If you have suggestions or improvements, please creat
 
 &nbsp;
 
-## Author
-
-[Mohammed Nazm](https://github.com/mohammadnazm)
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+[Mohammed Nazm](https://github.com/mohammadnazm)
