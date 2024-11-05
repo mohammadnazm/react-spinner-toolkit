@@ -2,7 +2,7 @@
 
 [https://react-spinner-toolkit.vercel.app/](https://react-spinner-toolkit.vercel.app/)
 
-A customizable loading spinner component for React applications. The `react-spinner-toolkit` provides a variety of shapes and animations to enhance the user experience during loading states.
+A customizable loading React Spinner Toolkit for React applications. The `react-spinner-toolkit` provides a variety of shapes and animations to enhance the user experience during loading states.
 
 ## Table of Contents
 
@@ -36,11 +36,11 @@ yarn add react-spinner-toolkit
 
 ## Usage
 
-To use the Spinner component in your React application, follow these steps:
+To use the React Spinner Toolkit in your React application, follow these steps:
 
-1. **Import the Spinner Component**
+1. **Import the React Spinner Toolkit**
 
-   Start by importing the Spinner component from the `react-spinner-toolkit` package:
+   Start by importing the React Spinner Toolkit from the `react-spinner-toolkit` package:
 
    ```jsx
    import { Spinner } from "react-spinner-toolkit";
@@ -77,7 +77,7 @@ To use the Spinner component in your React application, follow these steps:
 
 ## Props
 
-The Spinner component accepts the following props:
+The React Spinner Toolkit accepts the following props:
 
 | Prop            | Type      | Description                                                     |
 | --------------- | --------- | --------------------------------------------------------------- |
