@@ -1,34 +1,20 @@
 # React Spinner Toolkit
 
-#### _A Customizable Loading Spinner Library for React Applications_
+[https://react-spinner-toolkit.vercel.app/](https://react-spinner-toolkit.vercel.app/)
 
-[![GitHub Repo](https://img.shields.io/static/v1?label=GitHub&message=react-spinner-toolkit&color=yellow&logo=github)](https://github.com/yourusername/react-spinner-toolkit "Go to GitHub repo")
-
-[![npm version](https://img.shields.io/npm/v/react-spinner-toolkit.svg)](http://badge.fury.io/js/react-spinner-toolkit) [![npm downloads](https://img.shields.io/npm/dm/react-spinner-toolkit.svg)](http://badge.fury.io/js/react-spinner-toolkit) [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/yourusername/react-spinner-toolkit/blob/main/LICENSE)
-
-A customizable loading spinner toolkit for React applications. The `react-spinner-toolkit` provides a variety of shapes and animations to enhance the user experience during loading states.
-
-&nbsp;
+A customizable loading React Spinner Toolkit for React applications. The `react-spinner-toolkit` provides a variety of shapes and animations to enhance the user experience during loading states.
 
 ## Table of Contents
 
-- [React Spinner Toolkit](#react-spinner-toolkit) - [_A Customizable Loading Spinner Library for React Applications_](#a-customizable-loading-spinner-library-for-react-applications)
+- [React Spinner Toolkit](#react-spinner-toolkit)
   - [Table of Contents](#table-of-contents)
-  - [Demo](#demo)
   - [Features](#features)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Props](#props)
   - [Contributing](#contributing)
   - [License](#license)
-
-&nbsp;
-
-## Demo
-
-This is a simple [**Demo**](https://react-spinner-toolkit.vercel.app/) environment for the package where you can use and test the various spinners.
-
-&nbsp;
+  - [Author](#author)
 
 ## Features
 
@@ -36,8 +22,6 @@ This is a simple [**Demo**](https://react-spinner-toolkit.vercel.app/) environme
 - Customizable size and color.
 - Different animation types (e.g., bounce, spin).
 - Lightweight and easy to use.
-
-&nbsp;
 
 ## Installation
 
@@ -50,8 +34,6 @@ npm install react-spinner-toolkit
 # Using yarn
 yarn add react-spinner-toolkit
 ```
-
-&nbsp;
 
 ## Usage
 
@@ -94,8 +76,6 @@ To use the React Spinner Toolkit in your React application, follow these steps:
    - The `animationType` prop is set to `bounce`, creating a bouncing animation effect.
    - The `shape` prop defines the spinner's shape as a circle.
 
-&nbsp;
-
 ## Props
 
 The React Spinner Toolkit accepts the following props:
@@ -108,14 +88,14 @@ The React Spinner Toolkit accepts the following props:
 | `animationType` | `string`  | The type of animation for the spinner (`bounce`, `spin`, etc.). |
 | `shape`         | `string`  | The shape of the spinner (`circle`, `square`, etc.).            |
 
-&nbsp;
-
 ## Contributing
 
 Contributions are welcome! If you have suggestions or improvements, please create an issue or submit a pull request.
 
-&nbsp;
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+Mohammed Nazm
