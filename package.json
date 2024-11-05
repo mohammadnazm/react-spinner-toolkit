@@ -46,7 +46,9 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "CONTRIBUTING.md",
+    "README.md"
   ],
   "readme": "README.md"
 }
