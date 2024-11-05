@@ -13,8 +13,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mohammadnazm/spinner-package.git"
+    "url": "https://github.com/mohammadnazm/react-spinner-toolkit.git"
   },
+  "homepage": "https://react-spinner-toolkit.vercel.app/",
   "keywords": [
     "react",
     "nextjs",
@@ -43,7 +44,7 @@
   },
   "files": [
     "dist",
-    "src",
-    "README.md"
-  ]
+    "src"
+  ],
+  "readme": "README.md"
 }
