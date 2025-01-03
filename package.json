@@ -1,6 +1,6 @@
 {
   "name": "react-spinner-toolkit",
-  "version": "1.0.29",
+  "version": "1.0.31",
   "type": "module",
   "description": "A unique spinner for React and Next.js applications",
   "main": "dist/index.js",
@@ -30,8 +30,8 @@
   "dependencies": {
     "@types/react": "^18.3.10",
     "framer-motion": "^11.11.10",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {

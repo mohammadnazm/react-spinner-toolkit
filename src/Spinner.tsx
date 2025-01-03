@@ -21,7 +21,7 @@ interface SpinnerProps {
   shape?: string;
 }
 
-export const Spinner: React.FC<SpinnerProps> = ({
+const Spinner: React.FC<SpinnerProps> = ({
   size = 50,
   color = "#007aff",
   borderWidth = 4,
@@ -654,3 +654,5 @@ export const Spinner: React.FC<SpinnerProps> = ({
       return <div style={styles} className={className} />;
   }
 };
+
+export default Spinner;

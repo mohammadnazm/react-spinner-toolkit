@@ -10,6 +10,6 @@ interface SpinnerProps {
     className?: string;
     shape?: string;
 }
-export declare const Spinner: React.FC<SpinnerProps>;
-export {};
+declare const Spinner: React.FC<SpinnerProps>;
+export default Spinner;
 //# sourceMappingURL=Spinner.d.ts.map

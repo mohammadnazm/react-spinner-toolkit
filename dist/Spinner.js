@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import React, { useEffect } from "react";
-export var Spinner = function (_a) {
+var Spinner = function (_a) {
     var _b = _a.size, size = _b === void 0 ? 50 : _b, _c = _a.color, color = _c === void 0 ? "#007aff" : _c, _d = _a.borderWidth, borderWidth = _d === void 0 ? 4 : _d, _e = _a.speed, speed = _e === void 0 ? 1.5 : _e, _f = _a.animationType, animationType = _f === void 0 ? "spin" : _f, gradient = _a.gradient, _g = _a.loading, loading = _g === void 0 ? true : _g, className = _a.className, _h = _a.shape, shape = _h === void 0 ? "circle" : _h;
     var styles = {
         width: size,
@@ -296,4 +296,5 @@ export var Spinner = function (_a) {
             return React.createElement("div", { style: styles, className: className });
     }
 };
+export default Spinner;
 //# sourceMappingURL=Spinner.js.map
